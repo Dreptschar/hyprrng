@@ -1,0 +1,36 @@
+[package]
+name = "hyprrgn"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "hyprrgn"
+path = "src/main.rs"
+
+[dependencies]
+# Wayland core and client
+wayland-client = "0.31"
+wayland-protocols = { version = "0.31", features = ["client", "unstable"] }
+wayland-protocols-wlr = { version = "0.2", features = ["client"] }
+
+# Event loop
+# Rendering
+cairo-rs = { version = "0.18", features = ["png"] }
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Utilities
+anyhow = "1.0"
+thiserror = "1.0"
+memfd = "0.6"
+memmap2 = "0.9"
+serde = { version = "1.0", features = ["derive"] }
+toml = "0.8"
+xkbcommon = "0.7"
+
+[profile.release]
+lto = true
+opt-level = 3
+strip = true
