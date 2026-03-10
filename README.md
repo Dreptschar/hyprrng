@@ -12,7 +12,6 @@ A lightweight, compileable Rust overlay for recursive grid navigation on Wayland
 ## Build
 
 ```bash
-cd /home/dreptschar/Workspace/Repos/HyprRGN
 cargo build --release
 ```
 
@@ -22,10 +21,18 @@ cargo build --release
 RUST_LOG=info ./target/release/hyprrgn
 ```
 
+## Install (optional)
+
+```bash
+install -Dm755 ./target/release/hyprrgn ~/.local/bin/hyprrgn
+```
+
+Make sure `~/.local/bin` is in your `PATH`.
+
 ## Hyprland Bind Example
 
 ```hyprlandinit
-bind = SUPER, G, exec, /home/dreptschar/Workspace/Repos/HyprRGN/target/release/hyprrgn
+bind = SUPER, G, exec, /path/to/hyprrgn
 ```
 
 ## Configuration
@@ -76,4 +83,3 @@ Environment overrides:
 - Grid size capped to 10x10
 - If `keybindings.cells` is omitted, a vim-friendly default key layout is generated automatically
 - Pointer movement/clicking not implemented
-# hyprrng
